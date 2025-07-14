@@ -1,4 +1,5 @@
 # itf-vectormapdata
+[![Overpass API経由でデータを取得してアップロードします](https://github.com/until-tsukuba/itf-vectormapdata/actions/workflows/fetchAndConvert.yaml/badge.svg)](https://github.com/until-tsukuba/itf-vectormapdata/actions/workflows/fetchAndConvert.yaml)
 筑波大学筑波キャンパス内の地物データをOSMから取得し、GeoJSON・ベクタータイルとして使用できるようにする
 
 ## 使い方
