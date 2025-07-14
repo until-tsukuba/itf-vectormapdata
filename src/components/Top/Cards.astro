@@ -1,0 +1,18 @@
+<div class="flex flex-wrap gap-4 justify-center">
+    <div class="card bg-base-100 w-96 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title">GeoJSON</h2>
+            <p>OSMから取得したデータをそのままGeoJSONに変換したものです。変換には<code>osmtogeojson</code>パッケージを使用させていただいております。</p>
+            <a class="card-actions justify-end" href="/itfvectormap.geojson">
+                <button class="btn btn-primary">itfvectormap.geojson</button>
+            </a>
+        </div>
+    </div>
+    <div class="card bg-base-100 w-96 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title">ベクタータイル</h2>
+            <p>GeoJSONをさらに加工し、ベクタータイルにしたものです。変換には<code>tippecanoe</code>を使用させていただいております。</p>
+            <p>QGIS等に<code is:raw>/tiles/{z}/{x}/{y}.pbf</code>を入力することで使用可能なはずです。ズームレベルは10～18です。<a href="/tiles/metadata.json">metadata.jsonはこちら</a>です。</p>
+        </div>
+    </div>
+</div>

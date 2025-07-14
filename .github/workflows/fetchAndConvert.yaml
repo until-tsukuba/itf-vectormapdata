@@ -1,0 +1,70 @@
+name: Overpass API経由でデータを取得してアップロードします
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  schedule:
+    - cron: '0 21 */2 * *'
+
+jobs:
+  fetch-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: pnpmをセットアップ
+        uses: pnpm/action-setup@v4
+        with: 
+          version: '10'
+          cache: 'true'
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22' 
+          cache: 'pnpm' # pnpmのキャッシュを有効化
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Fetch data from Overpass API
+        run: node scripts/fetchtooverpass.js
+
+      - name: Upload GeoJSON artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: itfvectormap.geojson # アーティファクト名
+          path: public/itfvectormap.geojson # アップロードするファイルのパス
+
+      - name: Install tippecanoe
+        run: sudo apt update && sudo apt install -y tippecanoe
+
+      - name: PBFタイルを生成
+        run:
+          tippecanoe -e public/tiles --force -Z10 -z18 public/itfvectormap.geojson
+
+      - name: Upload PBF Tile Directory Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tiles
+          path: public/tiles/
+
+      - name: Astroサイトをビルド
+        run: pnpm build
+
+      - name: Cloudflare Pagesにデプロイ
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') && github.event_name == 'push'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
