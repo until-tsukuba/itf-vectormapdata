@@ -54,6 +54,9 @@ jobs:
           name: pbf-tile-directory
           path: public/tiles/
 
+      - name: Astroサイトをビルド
+        run: pnpm build
+
       - name: Cloudflare Pagesにデプロイ
         if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') && github.event_name == 'push'
         uses: cloudflare/wrangler-action@v3
