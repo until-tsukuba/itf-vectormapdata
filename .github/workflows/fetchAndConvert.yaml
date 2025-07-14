@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22' 
-          cache: 'npm' # npmのキャッシュを有効化
+          cache: 'pnpm' # pnpmのキャッシュを有効化
 
       - name: Fetch data from Overpass API
         run: node scripts/fetchtooverpass.js
