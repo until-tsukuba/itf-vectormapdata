@@ -33,6 +33,9 @@ jobs:
           node-version: '22' 
           cache: 'pnpm' # pnpmのキャッシュを有効化
 
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Fetch data from Overpass API
         run: node scripts/fetchtooverpass.js
 
@@ -47,17 +50,12 @@ jobs:
 
       - name: PBFタイルを生成
         run:
-          echo "Generating PBF tile directory..."
-          tippecanoe \
-            -e public/tiles \
-            --force \
-            -Z10 -z18 \
-            public/itfvectormap.geojson
+          tippecanoe -e public/tiles --force -Z10 -z18 public/itfvectormap.geojson
 
       - name: Upload PBF Tile Directory Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: pbf-tile-directory
+          name: tiles
           path: public/tiles/
 
       - name: Astroサイトをビルド
