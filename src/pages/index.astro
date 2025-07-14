@@ -1,5 +1,6 @@
 ---
 import CommonFooter from '../components/Common/Footer.astro';
+import TopHero from '../components/Top/Hero.astro';
 import TopDescribe from '../components/Top/Describe.astro';
 import TopCards from '../components/Top/Cards.astro';
 import Layout from '../layouts/Layout.astro';
@@ -9,6 +10,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="トップページ" description="itf-vectormapdataは、筑波大学筑波キャンパスのOSMデータをベクター形式で提供しています。">
+	<TopHero />
 	<TopDescribe />
 	<TopCards />
 	<CommonFooter />
