@@ -1,4 +1,5 @@
 import { writeFile } from 'fs/promises'; // 非同期でファイルを書き込むために必要
+import osmtogeojson from 'osmtogeojson';
 import { PUBLIC_OVERPASS_URL } from './consts.js'; 
 
 // Overpass APIのエンドポイント
@@ -17,7 +18,7 @@ out geom;
 
 // データを取得してファイルに保存する非同期関数
 async function fetchOverpassData() {
-  console.log('fetchtooperpass: Overpass API（ ' + overpassUrl + '）にクエリを送信しています');
+  console.log('fetchtooperpass: Overpass API（ ' + overpassUrl + ' ）にクエリを送信しています');
 
   try {
     // fetch APIを使ってPOSTリクエストを送信
