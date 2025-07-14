@@ -39,8 +39,11 @@ async function fetchOverpassData() {
     const data = await response.json();
     console.log(`fetchtooperpass: 取得に成功しました。合計で${data.elements.length}件の地物を取得しました。`);
 
+    // osmtogeojsonを使ってOverPassから得られたJSONをGeoJSONに変換
+    const geoJsonData = osmtogeojson(data);
+
     // 取得したデータをGeoJSONファイルとしてきれいにフォーマットして保存
-    await writeFile('public/itfvectormap.geojson', JSON.stringify(data, null, 4));
+    await writeFile('public/itfvectormap.geojson', JSON.stringify(geoJsonData, null, 4));
 
     console.log("fetchtooperpass: 結果を 'public/itfvectormap.geojson' に保存しました。");
 
