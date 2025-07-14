@@ -20,7 +20,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+      
+      - name: pnpmをセットアップ
+        uses: pnpm/action-setup@v4
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
