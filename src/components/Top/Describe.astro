@@ -1,7 +1,18 @@
+---
+const buildDate = new Date();
+const formattedDate = buildDate.toLocaleString('ja-JP', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+});
+---
 <div class="container mx-auto px-4">
     <div class="bg-base-100 p-4 rounded shadow-sm max-w-4xl mx-auto">
         <p>
             <code>itf-vectormapdata</code>においては、<a href="https://openstreetmap.org" class="link link-primary">OpenStreetMap（OSM）</a>のデータのうち、筑波大学筑波キャンパス周辺の地物のみを提供しています。通常のOSMタイルとは異なり、ベクターデータとしての配布を行っております。
         </p>
+        <p>最終更新日時: {formattedDate}</p>
     </div>
 </div>
