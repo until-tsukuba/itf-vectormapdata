@@ -1,0 +1,15 @@
+<script>
+    import maplibregl from 'maplibre-gl';
+    import 'maplibre-gl/dist/maplibre-gl.css';
+
+    let map = new maplibregl.Map({
+        container: 'map',
+        center: [140.10641, 36.10322],
+        style: './style.json',
+        zoom: 13,
+    })
+</script>
+
+<div class="h-[625px] px-3 py-4">
+    <div id="map" class="h-full w-full"></div>
+</div>
