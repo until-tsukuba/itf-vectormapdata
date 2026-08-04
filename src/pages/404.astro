@@ -1,0 +1,22 @@
+---
+import CommonFooter from '../components/Common/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+
+// dist/404.htmlが無いとCloudflare PagesはSPAとみなし、存在しないパスにも
+// index.htmlを200で返す。空タイルにHTMLが返るのを防ぐため必須。
+---
+
+<Layout title="404 Not Found" description="お探しのページまたはファイルは見つかりませんでした。">
+	<div class="hero bg-base-200 min-h-1/2">
+		<div class="hero-content text-center">
+			<div class="max-w-md">
+				<h1 class="text-5xl font-bold">404</h1>
+				<p class="py-6">
+					お探しのページまたはファイルは見つかりませんでした。ベクタータイルの場合、その座標に地物が存在しないことを意味します。
+				</p>
+				<a href="/" class="btn btn-primary">トップページへ戻る</a>
+			</div>
+		</div>
+	</div>
+	<CommonFooter />
+</Layout>
