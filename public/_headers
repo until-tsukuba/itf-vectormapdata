@@ -13,3 +13,6 @@
 /itfvectormap.geojson
   Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=3600
+
+/itf-vectormapdata-qgis.xml
+  Content-Disposition: attachment; filename="itf-vectormapdata-qgis.xml"

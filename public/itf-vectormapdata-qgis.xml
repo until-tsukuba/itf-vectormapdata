@@ -1,0 +1,4 @@
+<!DOCTYPE connections>
+<qgsVectorTileConnections version="1.0">
+    <vectortile name="itf-vectormapdata" url="https://ivm.tsukuba.dev/tiles/{z}/{x}/{y}.pbf" zmin="10" zmax="18" serviceType="" authcfg="" username="" password="" styleUrl=""/>
+</qgsVectorTileConnections>
