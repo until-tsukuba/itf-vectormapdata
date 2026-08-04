@@ -48,9 +48,11 @@ jobs:
       - name: Install tippecanoe
         run: sudo apt update && sudo apt install -y tippecanoe
 
+      # --no-tile-compression は必須。既定のgzip出力はCloudflare PagesがContent-Encodingを
+      # 付けずに配信するため、QGIS等が読めなくなる。
       - name: PBFタイルを生成
         run:
-          tippecanoe -e public/tiles --force -Z10 -z18 public/itfvectormap.geojson
+          tippecanoe -e public/tiles --force -Z10 -z18 --no-tile-compression public/itfvectormap.geojson
 
       - name: Upload PBF Tile Directory Artifact
         uses: actions/upload-artifact@v4

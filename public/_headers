@@ -1,0 +1,18 @@
+# Cloudflare Pages用ヘッダー設定 https://developers.cloudflare.com/pages/configuration/headers/
+# 複数ルールにマッチするとヘッダーが結合されるため、対象は重複しないよう分けている。
+
+/tiles/*.pbf
+  Content-Type: application/vnd.mapbox-vector-tile
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600, no-transform
+
+/tiles/metadata.json
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+
+/itfvectormap.geojson
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+
+/itf-vectormapdata-qgis.xml
+  Content-Disposition: attachment; filename="itf-vectormapdata-qgis.xml"

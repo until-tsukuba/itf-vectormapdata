@@ -12,7 +12,16 @@
         <div class="card-body">
             <h2 class="card-title">ベクタータイル</h2>
             <p>GeoJSONをさらに加工し、ベクタータイルにしたものです。変換には<code>tippecanoe</code>を使用させていただいております。</p>
-            <p>QGIS等に<code is:raw>/tiles/{z}/{x}/{y}.pbf</code>を入力することで使用可能なはずです。ズームレベルは10～18です。<a href="/tiles/metadata.json">metadata.jsonはこちら</a>です。</p>
+            <p>QGIS等では、以下のURLをXYZ形式のベクタータイルとして指定してください。</p>
+            <pre class="bg-base-200 rounded p-2 text-xs overflow-x-auto"><code is:raw>https://ivm.tsukuba.dev/tiles/&#123;z&#125;/&#123;x&#125;/&#123;y&#125;.pbf</code></pre>
+            <div role="alert" class="alert alert-warning alert-soft text-sm">
+                <span>QGISの「ベクタータイル」接続では、<strong>最小ズームレベルを10、最大ズームレベルを18</strong>に設定してください。既定値のままだと0～14が要求され、ズーム15以上が表示されない上に、データの存在しない低ズームへ大量のリクエストが発生します。</span>
+            </div>
+            <p>下記の接続ファイルを「データソースマネージャ」→「ベクタータイル」→「接続を読み込む」から取り込むと、ズームレベル込みで設定されます（QGIS 3.16以降）。</p>
+            <p><a class="link link-primary" href="/tiles/metadata.json">metadata.jsonはこちら</a>です。</p>
+            <a class="card-actions justify-end" href="/itf-vectormapdata-qgis.xml" download>
+                <button class="btn btn-primary">QGIS接続ファイル</button>
+            </a>
         </div>
     </div>
 </div>
