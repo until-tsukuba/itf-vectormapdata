@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# ワークフローで生成されるデータ（リポジトリには含めない）
+public/itfvectormap.geojson
+public/tiles/

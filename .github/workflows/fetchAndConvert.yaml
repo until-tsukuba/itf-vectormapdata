@@ -54,6 +54,14 @@ jobs:
         run:
           tippecanoe -e public/tiles --force -Z10 -z18 --no-tile-compression public/itfvectormap.geojson
 
+      # 空のデータで既存の配信内容を上書きしないための保険
+      - name: 生成物を検証
+        run: |
+          test -s public/itfvectormap.geojson
+          tile_count=$(find public/tiles -name '*.pbf' | wc -l)
+          echo "生成されたタイル数: $tile_count"
+          test "$tile_count" -gt 0
+
       - name: Upload PBF Tile Directory Artifact
         uses: actions/upload-artifact@v4
         with:
