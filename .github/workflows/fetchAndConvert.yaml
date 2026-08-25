@@ -50,9 +50,12 @@ jobs:
 
       # --no-tile-compression は必須。既定のgzip出力はCloudflare PagesがContent-Encodingを
       # 付けずに配信するため、QGIS等が読めなくなる。
+      # -Z0 も必須。低ズームのタイルが無いと、縮小表示したQGISが最小ズーム(-Z)の解像度で
+      # 表示範囲全体をタイル分割し、数千枚のリクエストを投げてタイムアウトする。
+      # 対象範囲が狭いので低ズーム側は各1枚程度しか増えない。
       - name: PBFタイルを生成
         run:
-          tippecanoe -e public/tiles --force -Z10 -z18 --no-tile-compression public/itfvectormap.geojson
+          tippecanoe -e public/tiles --force -Z0 -z18 --no-tile-compression public/itfvectormap.geojson
 
       # 空のデータで既存の配信内容を上書きしないための保険
       - name: 生成物を検証

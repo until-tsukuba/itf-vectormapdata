@@ -1,0 +1,107 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group expanded="1" checked="Qt::Checked" name="">
+    <customproperties>
+      <Option/>
+    </customproperties>
+    <layer-tree-layer expanded="1" checked="Qt::Checked" id="itfvectormapdata_00000000_0000_0000_0000_000000000001" name="itf-vectormapdata" providerKey="xyzvectortiles" source="type=xyz&amp;url=https://ivm.tsukuba.dev/tiles/%7Bz%7D/%7Bx%7D/%7By%7D.pbf&amp;zmax=18&amp;zmin=0" patch_size="-1,-1" legend_exp="" legend_split_behavior="0">
+      <customproperties>
+        <Option/>
+      </customproperties>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer type="vector-tile" hasScaleBasedVisibilityFlag="1" maxScale="0" minScale="1000000" autoRefreshMode="Disabled" autoRefreshTime="0" refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" legendPlaceholderImage="" styleCategories="AllStyleCategories">
+      <id>itfvectormapdata_00000000_0000_0000_0000_000000000001</id>
+      <datasource>type=xyz&amp;url=https://ivm.tsukuba.dev/tiles/%7Bz%7D/%7Bx%7D/%7By%7D.pbf&amp;zmax=18&amp;zmin=0</datasource>
+      <layername>itf-vectormapdata</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
+          <srsid>3857</srsid>
+          <srid>3857</srid>
+          <authid>EPSG:3857</authid>
+          <description>WGS 84 / Pseudo-Mercator</description>
+          <projectionacronym>merc</projectionacronym>
+          <ellipsoidacronym>EPSG:7030</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <provider>xyzvectortiles</provider>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <renderer type="basic">
+        <styles>
+          <style name="面" layer="" geometry="2" enabled="1" expression="geometry_type(@geometry)='Polygon'" min-zoom="-1" max-zoom="-1">
+            <symbols>
+              <symbol type="fill" name="0" alpha="1" clip_to_extent="1" force_rhr="0" is_animated="0" frame_rate="10">
+                <layer class="SimpleFill" enabled="1" locked="0" pass="0">
+                  <Option type="Map">
+                    <Option type="QString" name="color" value="125,139,143,100"/>
+                    <Option type="QString" name="outline_color" value="125,139,143,255"/>
+                    <Option type="QString" name="outline_style" value="solid"/>
+                    <Option type="QString" name="outline_width" value="0.26"/>
+                    <Option type="QString" name="outline_width_unit" value="MM"/>
+                    <Option type="QString" name="joinstyle" value="bevel"/>
+                    <Option type="QString" name="style" value="solid"/>
+                  </Option>
+                </layer>
+              </symbol>
+            </symbols>
+          </style>
+          <style name="線" layer="" geometry="1" enabled="1" expression="geometry_type(@geometry)='Line'" min-zoom="-1" max-zoom="-1">
+            <symbols>
+              <symbol type="line" name="0" alpha="1" clip_to_extent="1" force_rhr="0" is_animated="0" frame_rate="10">
+                <layer class="SimpleLine" enabled="1" locked="0" pass="0">
+                  <Option type="Map">
+                    <Option type="QString" name="line_color" value="164,113,88,255"/>
+                    <Option type="QString" name="line_style" value="solid"/>
+                    <Option type="QString" name="line_width" value="0.26"/>
+                    <Option type="QString" name="line_width_unit" value="MM"/>
+                    <Option type="QString" name="capstyle" value="square"/>
+                    <Option type="QString" name="joinstyle" value="bevel"/>
+                  </Option>
+                </layer>
+              </symbol>
+            </symbols>
+          </style>
+          <style name="点" layer="" geometry="0" enabled="1" expression="geometry_type(@geometry)='Point'" min-zoom="-1" max-zoom="-1">
+            <symbols>
+              <symbol type="marker" name="0" alpha="1" clip_to_extent="1" force_rhr="0" is_animated="0" frame_rate="10">
+                <layer class="SimpleMarker" enabled="1" locked="0" pass="0">
+                  <Option type="Map">
+                    <Option type="QString" name="name" value="circle"/>
+                    <Option type="QString" name="color" value="196,60,57,100"/>
+                    <Option type="QString" name="outline_color" value="196,60,57,255"/>
+                    <Option type="QString" name="outline_style" value="solid"/>
+                    <Option type="QString" name="outline_width" value="0"/>
+                    <Option type="QString" name="outline_width_unit" value="MM"/>
+                    <Option type="QString" name="size" value="2"/>
+                    <Option type="QString" name="size_unit" value="MM"/>
+                    <Option type="QString" name="angle" value="0"/>
+                    <Option type="QString" name="offset" value="0,0"/>
+                    <Option type="QString" name="offset_unit" value="MM"/>
+                    <Option type="QString" name="scale_method" value="diameter"/>
+                    <Option type="QString" name="horizontal_anchor_point" value="1"/>
+                    <Option type="QString" name="vertical_anchor_point" value="1"/>
+                    <Option type="QString" name="joinstyle" value="bevel"/>
+                    <Option type="QString" name="cap_style" value="square"/>
+                  </Option>
+                </layer>
+              </symbol>
+            </symbols>
+          </style>
+        </styles>
+      </renderer>
+      <blendMode>0</blendMode>
+      <layerOpacity>1</layerOpacity>
+    </maplayer>
+  </maplayers>
+</qlr>
